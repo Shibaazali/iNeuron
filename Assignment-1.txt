@@ -1,6 +1,6 @@
 1. Store raw data into hdfs location ?
    Copied the data from my local to the hdfs location (/tmp/hive_class) using FileZila 
-   hadoop fs -put /tmp/hive_class/sales_order_data /tmp/hive_class
+   
    
 2. Create a internal hive table "sales_order_csv" which will store
 csv data sales_order_csv .. make sure to skip header row while
