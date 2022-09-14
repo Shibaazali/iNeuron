@@ -45,11 +45,16 @@ create table sales_order_orc stored as orc as select * from sales_order_csv;
 Perform below menioned queries on "sales_order_orc" table :
 
         a. Calculatye total sales per year ?
-            Select SUM(SALES)/12, YEAR_ID
+            Select SUM(SALES)/12 as Total_sales_py, YEAR_ID
             from sales_order_orc
             GROUP BY YEAR_ID;
         
         b. Find a product for which maximum orders were placed
+            Select Productline, MAX(Quantityordered) as Max_Orders
+            from sales_order_orc
+            GROUP BY Productline
+            ORDER BY Max_orders DESC;
+            
         c. Calculate the total sales for each quarter
         d. In which quarter sales was minimum
         e. In which country sales was maximum and in which country sales was minimum
