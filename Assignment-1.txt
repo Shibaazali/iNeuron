@@ -1,1 +1,2 @@
-
+1. To Store raw data into hdfs location :
+   Copied the data from my local to the hdfs location (/tmp/hive_class) using FileZila 
