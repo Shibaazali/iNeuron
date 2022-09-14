@@ -19,8 +19,7 @@ string,DEALSIZE string)
 
 
 3. Load data from hdfs path into "sales_order_csv" ?
-load data local inpath 'file:///tmp/hive_class/sales_order_data.csv'
-into table sales_order_csv;
+load data  inpath '/tmp/hive_class/sales_order_data.csv' into table sales_order_csv;
 
 4. Create an internal hive table which will store data in ORC format
 "sales_order_orc" ?
