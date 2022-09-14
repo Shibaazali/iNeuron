@@ -1,2 +1,51 @@
 1. To Store raw data into hdfs location :
    Copied the data from my local to the hdfs location (/tmp/hive_class) using FileZila 
+   
+   
+2. Create a internal hive table "sales_order_csv" which will store
+csv data sales_order_csv .. make sure to skip header row while
+creating table
+
+create table sales_order_orc1
+    > (ORDERNUMBER int,QUANTITYORDERED int,PRICEEACH
+float,ORDERLINENUMBER int,SALES float,STATUS string,MONTH_ID
+int,YEAR_ID int,PRODUCTLINE string,MSRP int,PRODUCTCODE string,PHONE
+string,CITY string,STATE string,POSTALCODE string,COUNTRY
+string,TERRITORY string,CONTACTLASTNAME string,CONTACTFIRSTNAME
+string,DEALSIZE string)
+    > row format delimited
+    > fields terminated by ','
+    > tblproperties("skip.header.line.count"="1");
+
+
+3. Load data from hdfs path into "sales_order_csv"
+load data local inpath 'file:///tmp/hive_class/sales_order_data.csv'
+into table sales_order_csv;
+
+4. Create an internal hive table which will store data in ORC format
+"sales_order_orc"
+create table sales_order_orc
+    > (ORDERNUMBER int,QUANTITYORDERED int,PRICEEACH
+float,ORDERLINENUMBER int,SALES float,STATUS string,MONTH_ID
+int,YEAR_ID int,PRODUCTLINE string,MSRP int,PRODUCTCODE string,PHONE
+string,CITY string,STATE string,POSTALCODE string,COUNTRY
+string,TERRITORY string,CONTACTLASTNAME string,CONTACTFIRSTNAME
+string,DEALSIZE string)
+    > stored as orc;
+
+5. Load data from "sales_order_csv" into "sales_order_orc"
+load data local inpath 'file:///tmp/hive_class/sales_order_data.csv'
+into table sales_order_orc;
+
+
+
+
+Perform below menioned queries on "sales_order_orc" table :
+
+        a. Calculatye total sales per year
+        b. Find a product for which maximum orders were placed
+        c. Calculate the total sales for each quarter
+        d. In which quarter sales was minimum
+        e. In which country sales was maximum and in which country sales was minimum
+        f. Calculate quartelry sales for each city
+        h. Find a month for each year in which maximum number of quantities were sold
