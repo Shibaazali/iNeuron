@@ -49,7 +49,8 @@ creating table ?
         a. Calculatye total sales per year ?
             Select SUM(SALES)/12 as Total_sales_py, YEAR_ID
             from sales_order_orc
-            GROUP BY YEAR_ID;
+            GROUP BY YEAR_ID
+            ORDER BY Total_sales_py DESC;
         
         b. Find a product for which maximum orders were placed ?
             Select Productline, MAX(Quantityordered) as Max_Orders
@@ -57,7 +58,12 @@ creating table ?
             GROUP BY Productline
             ORDER BY Max_orders DESC;
             
-        c. Calculate the total sales for each quarter
+        c. Calculate the total sales for each quarter ?
+            select ((SUM(SALES)/12)*0.25) as Quarterly_sales, YEAR_ID 
+            from sales_order_orc 
+            GROUP BY YEAR_ID 
+            ORDER BY Quarterly_sales DESC;
+            
         d. In which quarter sales was minimum
         e. In which country sales was maximum and in which country sales was minimum
         f. Calculate quartelry sales for each city
