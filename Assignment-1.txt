@@ -63,5 +63,15 @@ creating table ?
             
         d. In which quarter sales was minimum
         e. In which country sales was maximum and in which country sales was minimum
+            select max(SALES) as MAX_SALES, COUNTRY 
+            from sales_order_orc
+            GROUP BY COUNTRY
+            ORDER BY MAX_SALES DESC;
+            
         f. Calculate quartelry sales for each city
+            select min(SALES) as MIN_SALES, COUNTRY 
+            from sales_order_orc
+            GROUP BY COUNTRY
+            ORDER BY MIN_SALES;
+            
         h. Find a month for each year in which maximum number of quantities were sold
