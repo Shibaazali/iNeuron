@@ -59,6 +59,10 @@ creating table ?
             ORDER BY Max_orders DESC;
             
         c. Calculate the total sales for each quarter ?
+            select SUM(SALES) as Quarterly_sales, QTR_ID 
+            from sales_order_orc
+            GROUP BY QTR ID
+            ORDER BY QTR_ID;
             
             
         d. In which quarter sales was minimum ?
